@@ -1,7 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Lightswitch.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ProximityDimmer.cs">
     <Files>
+      <File FileName="mp1.sln" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProximityDimmer.cs" Line="32" Column="4" />
       <File FileName="Assets\OVR\Scripts\OVRPlugin.cs" Line="1" Column="1" />
       <File FileName="Assets\OVR\Scripts\OVRCameraRig.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Lightswitch.cs" Line="18" Column="38" />
