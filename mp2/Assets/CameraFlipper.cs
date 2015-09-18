@@ -6,11 +6,11 @@ using System.Collections;
 public class CameraFlipper : MonoBehaviour {
 
 	private Camera cam;
-	private OVRDisplay display; 
+
 	// Use this for initialization
 	void Start () {
 		cam = GetComponent<Camera> ();
-		display = OVRManager.display;
+
 	}
 	
 	// Update is called once per frame

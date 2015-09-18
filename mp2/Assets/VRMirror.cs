@@ -22,7 +22,7 @@ public class VRMirror : MonoBehaviour {
 
 		if (pressCount == 1) {        // same
 			transform.rotation = centerEye.transform.rotation * Quaternion.Euler(0, -90, 0);
-			transform.position = centerEye.transform.position + originalPosition;
+			transform.position =  originalPosition + centerEye.transform.position;
 		} else if (pressCount > 1) {  // mirror
 			transform.rotation = (new Quaternion(-centerEye.transform.rotation.x, -centerEye.transform.rotation.y, centerEye.transform.rotation.z, centerEye.transform.rotation.w)) * Quaternion.Euler(0, 90, 0);
 			transform.position = - centerEye.transform.position + originalPosition;

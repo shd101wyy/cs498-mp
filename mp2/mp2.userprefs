@@ -1,15 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GenerateStimuli.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\VRMirror.cs">
     <Files>
-      <File FileName="Assets\CubeManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\OVR\Scripts\OVRManager.cs" Line="517" Column="52" />
+      <File FileName="Assets\CameraFlipper.cs" Line="9" Column="2" />
+      <File FileName="Assets\CubeManager.cs" Line="90" Column="34" />
+      <File FileName="Assets\OVR\Scripts\OVRManager.cs" Line="519" Column="14" />
       <File FileName="Assets\OVR\Scripts\OVRCameraRig.cs" Line="1" Column="1" />
       <File FileName="Assets\OVR\Scripts\OVRDisplay.cs" Line="1" Column="1" />
       <File FileName="Assets\OVR\Scripts\OvrCapi.cs" Line="1" Column="1" />
-      <File FileName="Assets\CameraFlipper.cs" Line="21" Column="1" />
-      <File FileName="Assets\VRMirror.cs" Line="32" Column="1" />
-      <File FileName="Assets\GenerateStimuli.cs" Line="9" Column="2" />
+      <File FileName="Assets\VRMirror.cs" Line="12" Column="51" />
+      <File FileName="Assets\GenerateStimuli.cs" Line="39" Column="17" />
+      <File FileName="Assets\StraightTube.cs" Line="1" Column="1" />
+      <File FileName="Assets\CubeSeeking.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
