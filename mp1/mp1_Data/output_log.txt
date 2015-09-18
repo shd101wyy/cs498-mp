@@ -1,0 +1,46 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+[VRDevice] Successfully created device oculus.
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX TITAN Black (ID=0x100c)
+    Vendor:   NVIDIA
+    VRAM:     6075 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.141 seconds
+desktop: 2560x1440 59Hz; virtual: 5120x1440 at -2560,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\ywang189\Desktop\cs498-mp\mp1\mp1_Data\Managed\System.dll (this message is harmless)
+[CAPI] LibOVR module is located at C:\Windows\system32\LibOVRRT64_0_6.dll
+
+ 
+(Filename:  Line: 52)
+
+Unity v5.1.2f1, Oculus Utilities v0.1.0, OVRPlugin v0.5.0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Creating volume controller...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 15f8 -> priority: 1 
+  Thread -> id: 1618 -> priority: 1 
