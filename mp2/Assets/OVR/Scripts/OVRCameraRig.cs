@@ -58,6 +58,7 @@ public class OVRCameraRig : MonoBehaviour
 
 	// YIYI add this
 	private bool useRotationTracking = true;
+	private bool usePositionTracking = true;
 
 #region Unity Messages
 	private void Awake()
@@ -109,16 +110,39 @@ public class OVRCameraRig : MonoBehaviour
 			useRotationTracking = !useRotationTracking;
 		}
 
+		if (Input.GetKeyDown (KeyCode.P)) {
+			usePositionTracking = !usePositionTracking;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Tab)) {
+
+			leftEyeAnchor.localRotation = leftEye.orientation;
+			centerEyeAnchor.localRotation = leftEye.orientation; // using left eye for now
+			rightEyeAnchor.localRotation = rightEye.orientation;
+
+			leftEyeAnchor.localPosition = leftEye.position;
+			centerEyeAnchor.localPosition = 0.5f * (leftEye.position + rightEye.position);
+			rightEyeAnchor.localPosition = rightEye.position;
+
+			Camera cam = GetComponent<Camera>();
+			if (cam) {
+				cam.transform.position = new Vector3 (0, 0, 0);
+			}
+
+			OVRManager.display.RecenterPose(); // // This function will also reset rotation...
+		}
+
 		if (useRotationTracking) {
 			leftEyeAnchor.localRotation = leftEye.orientation;
 			centerEyeAnchor.localRotation = leftEye.orientation; // using left eye for now
 			rightEyeAnchor.localRotation = rightEye.orientation;
 		}
 
-		leftEyeAnchor.localPosition = leftEye.position;
-		centerEyeAnchor.localPosition = 0.5f * (leftEye.position + rightEye.position);
-		rightEyeAnchor.localPosition = rightEye.position;
-
+		if (usePositionTracking) {
+			leftEyeAnchor.localPosition = leftEye.position;
+			centerEyeAnchor.localPosition = 0.5f * (leftEye.position + rightEye.position);
+			rightEyeAnchor.localPosition = rightEye.position;
+		}
 		//Debug.Log (leftEye.position);
 		//Debug.Log (rightEye.position);
 	}

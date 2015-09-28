@@ -22,10 +22,16 @@ public class VRMirror : MonoBehaviour {
 
 		if (pressCount == 1) {        // same
 			transform.rotation = centerEye.transform.rotation * Quaternion.Euler(0, -90, 0);
-			transform.position =  originalPosition + centerEye.transform.position;
+			// transform.position =  originalPosition + centerEye.transform.position;
+			transform.position = new Vector3(originalPosition.x + centerEye.transform.position.x, 
+			                                 originalPosition.y + centerEye.transform.position.y, 
+			                                 originalPosition.z + centerEye.transform.position.z);
 		} else if (pressCount > 1) {  // mirror
 			transform.rotation = (new Quaternion(-centerEye.transform.rotation.x, -centerEye.transform.rotation.y, centerEye.transform.rotation.z, centerEye.transform.rotation.w)) * Quaternion.Euler(0, 90, 0);
-			transform.position = - centerEye.transform.position + originalPosition;
+			// transform.position = - centerEye.transform.position + originalPosition;
+			transform.position = new Vector3(originalPosition.x - centerEye.transform.position.x, 
+			                                 originalPosition.y - centerEye.transform.position.y, 
+			                                 originalPosition.z - centerEye.transform.position.z);
 		}
 	}
 }

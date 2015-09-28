@@ -495,31 +495,6 @@ public class OVRManager : MonoBehaviour
 
 	private void Update()
 	{
-		// YIYI add code here
-		// press P to toggle position tracking
-		if (Input.GetKeyDown (KeyCode.P)) {
-			usePositionTracking = !usePositionTracking;
-		}
-
-		// YIYI add code here
-		// press tab to reset camera position to (0, 0, 0)
-		if (Input.GetKeyDown (KeyCode.Tab)) {
-			/*
-			OVRPose headPose =  display.GetHeadPose();
-			Debug.Log("1");
-			Debug.Log(headPose.position);
-			headPose.position = Vector3.zero;
-			Debug.Log("2");
-			Debug.Log(headPose.position);
-			*/
-			Camera cam = GetComponent<Camera>();
-			if (cam) {
-				cam.transform.position = new Vector3 (0, 0, 0);
-			}
-			// display.RecenterPose(); // This function will also reset rotation...
-			
-		}
-
 		if (usePositionTracking != usingPositionTracking)
 		{
 			tracker.isEnabled = usePositionTracking;
