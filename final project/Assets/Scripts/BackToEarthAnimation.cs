@@ -12,6 +12,7 @@ public class BackToEarthAnimation : MonoBehaviour {
 	private GameObject cloud;
 	private GameObject particles;
 	private Camera cam;
+	private AudioSource engineSound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,8 @@ public class BackToEarthAnimation : MonoBehaviour {
 		rain = GameObject.Find ("RainPrefab");
 		rain.SetActive (false);
 
+		engineSound = GameObject.Find ("Engine_Sound").GetComponent<AudioSource> ();
+
 		RenderSettings.skybox = farEarthSkybox;
 	}
 	
@@ -35,6 +38,14 @@ public class BackToEarthAnimation : MonoBehaviour {
 	void Update () {
 		// this.transform.Rotate (Vector2.up, 2f, Space.Self); // for debug
 		particles.transform.up = new Vector3 (0, 1, 0).normalized;
+	}
+
+	void startEngine() {
+		engineSound.Play ();
+	}
+
+	void stopEngine() {
+		engineSound.Stop ();
 	}
 
 	void enableGravity() {

@@ -105,9 +105,12 @@ public class CursorEvent : MonoBehaviour {
 							Debug.Log("Password wrong");
 							resetNumberButtons();
 						}
-
 					} else {
-						btn.GetComponent<Renderer>().material = activeButton;
+						if (btn.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
+							btn.GetComponent<Renderer>().material = activeButton;
+						} else {
+							btn.GetComponent<Renderer>().material = inactiveButton;
+						}
 					}				
 				}
 
