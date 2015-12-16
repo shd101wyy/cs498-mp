@@ -92,7 +92,7 @@
      <Compile Include="Assets\Scripts\AirFlow.cs" />
      <Compile Include="Assets\Scripts\BackToEarthAnimation.cs" />
      <Compile Include="Assets\Scripts\CursorEvent.cs" />
-     <Compile Include="Assets\Scripts\GameStart.cs" />
+     <Compile Include="Assets\Scripts\LightController.cs" />
      <Compile Include="Assets\Scripts\MouseMove.cs" />
      <Compile Include="Assets\Scripts\NumberButtonClick.cs" />
      <Compile Include="Assets\Scripts\RandomMove.cs" />

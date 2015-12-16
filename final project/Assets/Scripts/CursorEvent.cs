@@ -79,41 +79,51 @@ public class CursorEvent : MonoBehaviour {
 
 			if (hit.collider.gameObject.GetComponent<MouseMove>() != null || hit.collider.gameObject.tag == "NumberButton") { // the object can be moved
 				this.GetComponent<Renderer> ().material = red;
-
-
-				if (Input.GetMouseButtonDown(0) && hit.collider.tag == "NumberButton") {
-					GameObject btn = hit.collider.gameObject;
-					if (btn.name == "Btn_R") { // reset
-						resetNumberButtons();
-					} else if (btn.name == "Btn_E") {
-						if (btn_0.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
-						    btn_1.GetComponent<Renderer>().sharedMaterial == activeButton && 
-						    btn_2.GetComponent<Renderer>().sharedMaterial == activeButton && 
-						    btn_3.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
-						    btn_4.GetComponent<Renderer>().sharedMaterial == activeButton && 
-						    btn_5.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
-						    btn_6.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
-						    btn_7.GetComponent<Renderer>().sharedMaterial == activeButton && 
-						    btn_8.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
-						    btn_9.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
-							Debug.Log("Password correct");
+		
+				if (Input.GetMouseButtonDown(0)) {
+					if (hit.collider.tag == "NumberButton" && btn_E.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
+						GameObject btn = hit.collider.gameObject;
+						if (btn.name == "Btn_R") { // reset
 							resetNumberButtons();
-							btn.GetComponent<Renderer>().material = activeButton;
+						} else if (btn.name == "Btn_E") {
+							if (btn_0.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+							    btn_1.GetComponent<Renderer>().sharedMaterial == activeButton && 
+							    btn_2.GetComponent<Renderer>().sharedMaterial == activeButton && 
+							    btn_3.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+							    btn_4.GetComponent<Renderer>().sharedMaterial == activeButton && 
+							    btn_5.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+							    btn_6.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+							    btn_7.GetComponent<Renderer>().sharedMaterial == activeButton && 
+							    btn_8.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+							    btn_9.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
+								Debug.Log("Password correct");
+								resetNumberButtons();
+								btn.GetComponent<Renderer>().material = activeButton;
 
-							GameObject.Find("space_capsule").GetComponent<Animation>().Play("backToEarth");
+								GameObject.Find("Alert_Sound").GetComponent<AudioSource>().Stop(); // stop playing audio
+								
+								GameObject.Find("space_capsule").GetComponent<Animation>().Play("backToEarth");
+							} else {
+								Debug.Log("Password wrong");
+								resetNumberButtons();
+							}
 						} else {
-							Debug.Log("Password wrong");
-							resetNumberButtons();
-						}
-					} else {
-						if (btn.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
-							btn.GetComponent<Renderer>().material = activeButton;
-						} else {
-							btn.GetComponent<Renderer>().material = inactiveButton;
-						}
-					}				
+							if (btn.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
+								btn.GetComponent<Renderer>().material = activeButton;
+							} else {
+								btn.GetComponent<Renderer>().material = inactiveButton;
+							}
+						}	
+					}
+
+					if (hit.collider.name == "instruction paper") { // start alert
+						GameObject.Find("Spotlight").GetComponent<LightController>().startAlert();
+						GameObject.Find("Spotlight_2").GetComponent<LightController>().startAlert();
+						GameObject.Find("Spotlight_3").GetComponent<LightController>().startAlert();
+						GameObject.Find("Alert_Sound").GetComponent<AudioSource>().Play();  // start playing alert sound
+					}
+			
 				}
-
 			} else {
 				this.GetComponent<Renderer> ().material = blue;
 			}
