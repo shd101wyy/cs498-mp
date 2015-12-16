@@ -6,10 +6,53 @@ public class CursorEvent : MonoBehaviour {
 	public float maxDistance;
 	public Material red;
 	public Material blue; 
+	public Material inactiveButton;
+	public Material activeButton;
+
+	private GameObject btn_0;
+	private GameObject btn_1;
+	private GameObject btn_2;
+	private GameObject btn_3;
+	private GameObject btn_4;
+	private GameObject btn_5;
+	private GameObject btn_6;
+	private GameObject btn_7;
+	private GameObject btn_8;
+	private GameObject btn_9;
+	private GameObject btn_E;
+	private GameObject btn_R;
 
 	// Use this for initialization
 	void Start () {
 		cam = Camera.main;
+
+		btn_0 = GameObject.Find ("Btn_0");
+		btn_1 = GameObject.Find ("Btn_1");
+		btn_2 = GameObject.Find ("Btn_2");
+		btn_3 = GameObject.Find ("Btn_3");
+		btn_4 = GameObject.Find ("Btn_4");
+		btn_5 = GameObject.Find ("Btn_5");
+		btn_6 = GameObject.Find ("Btn_6");
+		btn_7 = GameObject.Find ("Btn_7");
+		btn_8 = GameObject.Find ("Btn_8");
+		btn_9 = GameObject.Find ("Btn_9");
+		btn_E = GameObject.Find ("Btn_E");
+		btn_R = GameObject.Find ("Btn_R");
+	}
+
+	void resetNumberButtons() {
+		btn_0.GetComponent<Renderer>().material = inactiveButton;
+		btn_1.GetComponent<Renderer>().material = inactiveButton;
+		btn_2.GetComponent<Renderer>().material = inactiveButton;
+		btn_3.GetComponent<Renderer>().material = inactiveButton;
+		btn_4.GetComponent<Renderer>().material = inactiveButton;
+		btn_5.GetComponent<Renderer>().material = inactiveButton;
+		btn_6.GetComponent<Renderer>().material = inactiveButton;
+		btn_7.GetComponent<Renderer>().material = inactiveButton;
+		btn_8.GetComponent<Renderer>().material = inactiveButton;
+		btn_9.GetComponent<Renderer>().material = inactiveButton;
+		btn_E.GetComponent<Renderer>().material = inactiveButton;
+		btn_R.GetComponent<Renderer>().material = inactiveButton;
 	}
 	
 	// Update is called once per frame
@@ -34,14 +77,40 @@ public class CursorEvent : MonoBehaviour {
 			// Debug.DrawLine(ray.origin, hit.point, Color.yellow);
 			// Debug.DrawLine(ray.origin, ray.origin + (hit.point - ray.origin) * 0.7f);
 
-			if (hit.collider.gameObject.GetComponent<MouseMove>() != null) { // the object can be moved
+			if (hit.collider.gameObject.GetComponent<MouseMove>() != null || hit.collider.gameObject.tag == "NumberButton") { // the object can be moved
 				this.GetComponent<Renderer> ().material = red;
 
-				/*
-				if (Input.GetMouseButtonDown(0)) {
-					hit.collider.gameObject.transform.position = screenPos; // get object closer
+
+				if (Input.GetMouseButtonDown(0) && hit.collider.tag == "NumberButton") {
+					GameObject btn = hit.collider.gameObject;
+					if (btn.name == "Btn_R") { // reset
+						resetNumberButtons();
+					} else if (btn.name == "Btn_E") {
+						if (btn_0.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+						    btn_1.GetComponent<Renderer>().sharedMaterial == activeButton && 
+						    btn_2.GetComponent<Renderer>().sharedMaterial == activeButton && 
+						    btn_3.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+						    btn_4.GetComponent<Renderer>().sharedMaterial == activeButton && 
+						    btn_5.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+						    btn_6.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+						    btn_7.GetComponent<Renderer>().sharedMaterial == activeButton && 
+						    btn_8.GetComponent<Renderer>().sharedMaterial == inactiveButton && 
+						    btn_9.GetComponent<Renderer>().sharedMaterial == inactiveButton) {
+							Debug.Log("Password correct");
+							resetNumberButtons();
+							btn.GetComponent<Renderer>().material = activeButton;
+
+							GameObject.Find("space_capsule").GetComponent<Animation>().Play("backToEarth");
+						} else {
+							Debug.Log("Password wrong");
+							resetNumberButtons();
+						}
+
+					} else {
+						btn.GetComponent<Renderer>().material = activeButton;
+					}				
 				}
-				*/
+
 			} else {
 				this.GetComponent<Renderer> ().material = blue;
 			}
