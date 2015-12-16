@@ -23,7 +23,13 @@ public class CursorEvent : MonoBehaviour {
 	private GameObject btn_R;
 
 	private GameObject fireInCapsule;
+	private GameObject alertSound;
+	private GameObject spaceCapsule;
+	private GameObject spotlight1;
+	private GameObject spotlight2;
+	private GameObject spotlight3;
 
+	
 	// Use this for initialization
 	void Start () {
 		cam = Camera.main;
@@ -40,7 +46,13 @@ public class CursorEvent : MonoBehaviour {
 		btn_9 = GameObject.Find ("Btn_9");
 		btn_E = GameObject.Find ("Btn_E");
 		btn_R = GameObject.Find ("Btn_R");
+
 		fireInCapsule = GameObject.Find ("fire in capsule");
+		alertSound = GameObject.Find ("Alert_Sound");
+		spaceCapsule = GameObject.Find ("space_capsule");
+		spotlight1 = GameObject.Find ("Spotlight");
+		spotlight2 = GameObject.Find ("Spotlight_2");
+		spotlight3 = GameObject.Find ("Spotlight_3");
 	}
 
 	void resetNumberButtons() {
@@ -103,9 +115,9 @@ public class CursorEvent : MonoBehaviour {
 								resetNumberButtons();
 								btn.GetComponent<Renderer>().material = activeButton;
 
-								GameObject.Find("Alert_Sound").GetComponent<AudioSource>().Stop(); // stop playing audio
+								alertSound.GetComponent<AudioSource>().Stop(); // stop playing audio
 								
-								GameObject.Find("space_capsule").GetComponent<Animation>().Play("backToEarth");
+								spaceCapsule.GetComponent<Animation>().Play("backToEarth");
 							} else {
 								Debug.Log("Password wrong");
 								resetNumberButtons();
@@ -120,10 +132,10 @@ public class CursorEvent : MonoBehaviour {
 					}
 
 					if (hit.collider.name == "instruction paper") { // start alert
-						GameObject.Find("Spotlight").GetComponent<LightController>().startAlert();
-						GameObject.Find("Spotlight_2").GetComponent<LightController>().startAlert();
-						GameObject.Find("Spotlight_3").GetComponent<LightController>().startAlert();
-						GameObject.Find("Alert_Sound").GetComponent<AudioSource>().Play();  // start playing alert sound
+						spotlight1.GetComponent<LightController>().startAlert();
+						spotlight2.GetComponent<LightController>().startAlert();
+						spotlight3.GetComponent<LightController>().startAlert();
+						alertSound.GetComponent<AudioSource>().Play();  // start playing alert sound
 
 						// start fire
 						fireInCapsule.SetActive(true);
