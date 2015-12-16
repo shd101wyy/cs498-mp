@@ -8,10 +8,12 @@ public class MouseMove : MonoBehaviour {
 	private bool _objectSelected = false;
 	private GameObject cursor;
 	private bool collideOtherObject;
+	private Camera cam;
 	
 	void Start() {
 		cursor = GameObject.Find ("Cursor");
 		collideOtherObject = false;
+		cam = Camera.main;
 	}
 
 	void MouseScrollWheel() {
@@ -56,6 +58,13 @@ public class MouseMove : MonoBehaviour {
 		Vector3 curScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint) + offset;
 		transform.position = curPosition + offset;
+
+		if (tag == "Animals") {
+			// rotate "Animals" paper to face user
+			Debug.Log ("Dragging animals");
+			transform.rotation = cam.transform.rotation;
+			transform.Rotate (new Vector3(0, 0, 180));
+		}
 	}
 
 }
