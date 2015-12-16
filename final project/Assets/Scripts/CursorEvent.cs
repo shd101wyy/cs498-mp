@@ -22,6 +22,8 @@ public class CursorEvent : MonoBehaviour {
 	private GameObject btn_E;
 	private GameObject btn_R;
 
+	private GameObject fireInCapsule;
+
 	// Use this for initialization
 	void Start () {
 		cam = Camera.main;
@@ -38,6 +40,7 @@ public class CursorEvent : MonoBehaviour {
 		btn_9 = GameObject.Find ("Btn_9");
 		btn_E = GameObject.Find ("Btn_E");
 		btn_R = GameObject.Find ("Btn_R");
+		fireInCapsule = GameObject.Find ("fire in capsule");
 	}
 
 	void resetNumberButtons() {
@@ -121,6 +124,9 @@ public class CursorEvent : MonoBehaviour {
 						GameObject.Find("Spotlight_2").GetComponent<LightController>().startAlert();
 						GameObject.Find("Spotlight_3").GetComponent<LightController>().startAlert();
 						GameObject.Find("Alert_Sound").GetComponent<AudioSource>().Play();  // start playing alert sound
+
+						// start fire
+						fireInCapsule.SetActive(true);
 					}
 			
 				}

@@ -13,6 +13,7 @@ public class BackToEarthAnimation : MonoBehaviour {
 	private GameObject particles;
 	private Camera cam;
 	private AudioSource engineSound;
+	private GameObject fireInCapsule;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,9 @@ public class BackToEarthAnimation : MonoBehaviour {
 		rain.SetActive (false);
 
 		engineSound = GameObject.Find ("Engine_Sound").GetComponent<AudioSource> ();
+
+		fireInCapsule = GameObject.Find ("fire in capsule");
+		fireInCapsule.SetActive (false);
 
 		RenderSettings.skybox = farEarthSkybox;
 	}

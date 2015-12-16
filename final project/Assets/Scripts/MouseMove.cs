@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouseMove : MonoBehaviour {
+public class MouseMove : MonoBehaviour { // All MouseMove object should have rigidbody
 
 	private Vector3 screenPoint;
 	private Vector3 offset = new Vector3(0, 0, 0);
@@ -9,16 +9,19 @@ public class MouseMove : MonoBehaviour {
 	private GameObject cursor;
 	private bool collideOtherObject;
 	private Camera cam;
-	
+	private Rigidbody rigidBody;
+
 	void Start() {
 		cursor = GameObject.Find ("Cursor");
 		collideOtherObject = false;
 		cam = Camera.main;
+	
+		rigidBody = GetComponent<Rigidbody> ();
 	}
 
 	void MouseScrollWheel() {
     }
-
+	
 	void Update() {
 
 		// set camera position
@@ -29,6 +32,12 @@ public class MouseMove : MonoBehaviour {
 				// depending on the orientation of the object you may need to use something other then a Vector3.forward
 				offset += (cursor.transform.position - Camera.main.transform.position ) * amountToMove * 0.5f; // translate the amountToMove to a vector3
 			}
+		}
+
+		float maxSpeed = 0.05f;
+
+		if (rigidBody.velocity.magnitude > maxSpeed) {
+			rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
 		}
 	}
 
