@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BackToEarthAnimation : MonoBehaviour {
 
@@ -34,6 +35,17 @@ public class BackToEarthAnimation : MonoBehaviour {
 	void Update () {
 		// this.transform.Rotate (Vector2.up, 2f, Space.Self); // for debug
 		particles.transform.up = new Vector3 (0, 1, 0).normalized;
+	}
+
+	void enableGravity() {
+		GameObject.Find ("pencil").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("ping pong").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("knife").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("animal_1").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("animal_2").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("animal_4").GetComponent<Rigidbody> ().useGravity = true;
+		GameObject.Find ("animal_7").GetComponent<Rigidbody> ().useGravity = true;
+		
 	}
 
 	void enableRain() {
