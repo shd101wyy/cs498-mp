@@ -36,7 +36,7 @@ public class MouseMove : MonoBehaviour { // All MouseMove object should have rig
 
 		float maxSpeed = 0.05f;
 
-		if (rigidBody.velocity.magnitude > maxSpeed) {
+		if (rigidBody.useGravity == false && rigidBody.velocity.magnitude > maxSpeed) {
 			rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
 		}
 	}
